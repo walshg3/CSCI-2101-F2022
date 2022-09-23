@@ -9,17 +9,17 @@ public class HelloWorld {
 
         System.out.println("Today is Thursday");
 
-
-
         System.out.println('3');
         // System.out.println(3+3); //Integer
+        // TYPE name = value;
         int answer = 3+3;
         System.out.println(answer);
         String name = "Greg";
+
         System.out.println(name + " is a great teacher! 6GOD X420");
         // String Concatenation
         System.out.println();
-        System.out.println(answer + name);
+        System.out.println(answer +" "+ name);
         System.out.print("Hello\n");
         System.out.println("I like eggs");
 
