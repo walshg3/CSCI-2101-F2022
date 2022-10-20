@@ -25,7 +25,7 @@ public class BankAccountTester {
 
         BankAccount.interact(account1);
 
-        account1.calcInterest(account1.getBalance(), 50, 0.01, 4);
+        // account1.calcInterest(account1.getBalance(), 50, 0.01, 4);
 
 
 

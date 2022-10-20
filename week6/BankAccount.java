@@ -1,5 +1,6 @@
 package week6;
 
+import java.time.Period;
 import java.util.Scanner;
 
 /*
@@ -18,6 +19,9 @@ import java.util.Scanner;
 public class BankAccount {
     private double balance;
     private String name;
+    private double interestRate = 0.01;
+    private int period = 4; // quarterly
+
 
     // Constructor
     public BankAccount(String name, double balance) {
@@ -105,13 +109,16 @@ public class BankAccount {
     // P can be this.balance or getBalance() if you would like to use a getter
 
 
-    public void calcInterest(double p, int t, double r, int n){
-        double amount = p * Math.pow(1+ (r/n), n*t);
+    public void calcInterest(double principal, int time, double rate, int period){
+        double amount = principal * Math.pow(1+ (rate/period), period*time);
         double roundedamount = Math.round(amount * 100.0) / 100.0;
-        double compinterest = amount - p;
+        double compinterest = amount - principal;
         compinterest = Math.round(compinterest * 100.0) / 100.0;
-        System.out.println("Compound Interest after " + t + " years: " + compinterest);
-        System.out.println("Amount after " + t + " years: " + roundedamount);
+        System.out.println("Current Rate is: "+rate+"%");
+        System.out.println("Current Period is: "+period+" times per year");
+        System.out.println("Selected Time is: "+time+" years");
+        System.out.println("Compound Interest after " + time + " years: $" + compinterest);
+        System.out.println("Amount after " + time + " years: $" + roundedamount);
     }
 
 
@@ -128,6 +135,7 @@ public class BankAccount {
         System.out.println("1. Deposit Money");
         System.out.println("2. Withdraw Money");
         System.out.println("3. Print Balance");
+        System.out.println("4. Calculate Interest");
         System.out.println("0. Exit");
         System.out.println("Please enter your choice: ");
         choice = input.nextInt();
@@ -160,7 +168,19 @@ public class BankAccount {
         } else if (choice == 3) {
             System.out.println(account.printBalance());
             // interact(account);
-        } else if (choice == 0) {
+        } else if (choice == 4) {
+            System.out.println("What is the time in years to invest (Whole Numbers Only)?");
+            int time = input.nextInt();
+            // double principal, int time, double rate, int period
+            account.calcInterest(account.getBalance(), time, account.interestRate, account.period);
+
+            System.out.println("... Thank you for using the Bank Account Menu. Have a nice day! ...");
+
+        }
+        // HW question to add special interest rate for 1 year or special period compounding interest
+        // is it better to compound interest rate over 10 years quarterly or compound yearly with 10% interest rate? or compund yearly over 100 years with 1% interest rate?
+
+        else if (choice == 0) {
             System.out.println("Thank you for using the Bank Account Menu");
         } else { // this would catch 69420
             System.out.println("Invalid Choice");
