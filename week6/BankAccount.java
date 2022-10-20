@@ -1,5 +1,7 @@
 package week6;
 
+import java.util.Scanner;
+
 /*
  * This is a Java Doc
  * This is a multi-line comment
@@ -91,6 +93,108 @@ public class BankAccount {
     }
 
 
-    
-    
+    // Create a method that will calculate the interest on the balance using compound interest
+    // P(1 + R/n)^(nt) - P 
+    // P = Principal
+    // R = Rate
+    // n = number of times interest is compounded per year
+    // t = number of years
+    // This method will take a double as an argument
+    // This method will return a double
+
+    // P can be this.balance or getBalance() if you would like to use a getter
+
+
+    public void calcInterest(double p, int t, double r, int n){
+        double amount = p * Math.pow(1+ (r/n), n*t);
+        double roundedamount = Math.round(amount * 100.0) / 100.0;
+        double compinterest = amount - p;
+        compinterest = Math.round(compinterest * 100.0) / 100.0;
+        System.out.println("Compound Interest after " + t + " years: " + compinterest);
+        System.out.println("Amount after " + t + " years: " + roundedamount);
+    }
+
+
+
+
+
+    // Create a method that will print a menu to the user
+    // this is called a helper method
+    public static int menu(){
+        int choice;
+        Scanner input = new Scanner(System.in);
+        System.out.println("Welcome to the Bank Account Menu");
+        System.out.println("--------------------------------");
+        System.out.println("1. Deposit Money");
+        System.out.println("2. Withdraw Money");
+        System.out.println("3. Print Balance");
+        System.out.println("0. Exit");
+        System.out.println("Please enter your choice: ");
+        choice = input.nextInt();
+        return choice;
+    }
+    // Create a method that will interact with the user based on their choice from the menu
+    // This method will take a BankAccount object as an argument
+    public static void interact(BankAccount account){
+        // get the choice from the menu
+        int choice = menu();
+        // create a scanner object
+        Scanner input = new Scanner(System.in);
+        // use that choice and run the method associated with that choice
+        // in class we learned about recursion and how to use it
+        // we will use recursion to keep the menu running until the user chooses to exit
+        // This is outside of the scope of this class but it is worth knowing about
+
+        if (choice == 1) {
+            System.out.println("How much would you like to deposit?");
+            double amount = input.nextDouble();
+            account.deposit(amount);
+            System.out.println(account.printBalance());
+            // interact(account);
+        } else if (choice == 2) {
+            System.out.println("How much would you like to withdraw?");
+            double amount = input.nextDouble();
+            account.withdraw(amount);
+            System.out.println(account.printBalance());
+            // interact(account);
+        } else if (choice == 3) {
+            System.out.println(account.printBalance());
+            // interact(account);
+        } else if (choice == 0) {
+            System.out.println("Thank you for using the Bank Account Menu");
+        } else { // this would catch 69420
+            System.out.println("Invalid Choice");
+            // interact(account);
+        }
+
+    }
+
+    // Copilot advanced example
+    // Create a method that will allow the user to interact with the menu
+    // public static void menuInteraction(BankAccount account){
+    //     int choice;
+    //     double amount;
+    //     Scanner input = new Scanner(System.in);
+    //     choice = menu();
+    //     while(choice != 0){
+    //         switch(choice){
+    //             case 1:
+    //                 System.out.println("How much would you like to deposit?");
+    //                 amount = input.nextDouble();
+    //                 account.deposit(amount);
+    //                 break;
+    //             case 2:
+    //                 System.out.println("How much would you like to withdraw?");
+    //                 amount = input.nextDouble();
+    //                 account.withdraw(amount);
+    //                 break;
+    //             case 3:
+    //                 System.out.println(account.printBalance());
+    //                 break;
+    //             default:
+    //                 System.out.println("Invalid Choice");
+    //         }
+    //         choice = menu();
+    //     }
+    // }
 }
