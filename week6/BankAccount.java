@@ -101,7 +101,7 @@ public class BankAccount {
     // P(1 + R/n)^(nt) - P 
     // P = Principal
     // R = Rate
-    // n = number of times interest is compounded per year
+    // n = number of times interest is compounded per year (annum)
     // t = number of years
     // This method will take a double as an argument
     // This method will return a double
@@ -109,13 +109,13 @@ public class BankAccount {
     // P can be this.balance or getBalance() if you would like to use a getter
 
 
-    public void calcInterest(double principal, int time, double rate, int period){
-        double amount = principal * Math.pow(1+ (rate/period), period*time);
+    public void calcInterest(double principal, int time, double rate, int annum){
+        double amount = principal * Math.pow(1+ (rate/annum), annum*time);
         double roundedamount = Math.round(amount * 100.0) / 100.0;
         double compinterest = amount - principal;
         compinterest = Math.round(compinterest * 100.0) / 100.0;
         System.out.println("Current Rate is: "+rate+"%");
-        System.out.println("Current Period is: "+period+" times per year");
+        System.out.println("Current Period is: "+annum+" times per year");
         System.out.println("Selected Time is: "+time+" years");
         System.out.println("Compound Interest after " + time + " years: $" + compinterest);
         System.out.println("Amount after " + time + " years: $" + roundedamount);
