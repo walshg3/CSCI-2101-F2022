@@ -53,13 +53,14 @@ public class ForHelper {
     public void nestedForLoop() {
         // init a counter to 0
         Scanner scan = new Scanner(System.in);
-        // System.out.println("Please enter number of rows:");
-        // int rows = scan.nextInt();
-        // System.out.println("Please enter number of columns:");
-        // int columns = scan.nextInt();
-        int rows = 4;
-        int columns = 4;
-        String symbol = "*";
+        System.out.println("Please enter number of rows:");
+        int rows = scan.nextInt();
+        System.out.println("Please enter number of columns:");
+        int columns = scan.nextInt();
+        // Ask user for symobl
+        System.out.println("Please enter symbol:");
+        String symbol = scan.next();
+
 
         // loop throgh the rows
         for(int i=0; i<rows; i++){
