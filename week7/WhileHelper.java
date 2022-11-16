@@ -1,6 +1,5 @@
 package week7;
 
-import java.util.Currency;
 import java.util.Scanner;
 
 public class WhileHelper {
