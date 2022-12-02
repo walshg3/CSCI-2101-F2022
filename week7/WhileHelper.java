@@ -68,7 +68,21 @@ public class WhileHelper {
 
         
     }
+    // Make a method that will collect a String input from the user and check if the pill is blue or red.
+    // If the pill is red the program will say "welcome to the matrix"
+    // if the pill is blue prompt the user again for their choice
 
-
-    
+    public void redPillBluePill() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("What will your choice be Red or Blue: ");
+        String pill = scan.nextLine();
+        while (!pill.equalsIgnoreCase("red")) {
+            System.out.println("Have a nice life");
+            System.out.println("What will your choice be Red or Blue: ");
+            pill = scan.nextLine();
+        }
+        System.out.println("Welcome to the Matrix");
+        }
+        
 }
+

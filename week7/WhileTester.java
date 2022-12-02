@@ -7,7 +7,8 @@ public class WhileTester {
         WhileHelper whileHelper = new WhileHelper();
         // call the method forLoopAverage from the WhileHelper class
         // whileHelper.forLoopAverage();
-        whileHelper.checkDup();
+        // whileHelper.checkDup();
+        whileHelper.redPillBluePill();
     }
 
     
