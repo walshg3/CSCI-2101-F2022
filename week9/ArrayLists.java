@@ -191,6 +191,9 @@ public class ArrayLists {
 
         // Lets Call the Method printAccounts() and pass it the ArrayList accounts
         printAccounts(accounts);
+        monthlyfeeAccounts(accounts);
+
+        randomArray();
         
 
 
@@ -203,5 +206,24 @@ public class ArrayLists {
             System.out.println("Balance: " + accounts.get(i).getBalance());
         }
     }
+
+    // Make a method that generates a 1 or 0 randomly and adds it to the ArrayList
+    private static void randomArray(){
+        ArrayList<Integer> randomArray = new ArrayList<Integer>();
+        for (int i = 0; i < 10; i++) {
+            randomArray.add((int)(Math.random() * 2));
+        }
+        System.out.println(randomArray);
+
+    }
+    
+
     // On Tuesday we will make a method to apply the monthly fee method to all these accounts
+    public static void monthlyfeeAccounts(ArrayList<BankAccount> accounts) {
+        for (int i = 0; i < accounts.size(); i++) {
+            System.out.println("Name: " + accounts.get(i).getName());
+            accounts.get(i).monthlyFee(10);
+            System.out.println("Balance: " + accounts.get(i).getBalance());
+        }
+    }
 }
